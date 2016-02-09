@@ -68,21 +68,30 @@
                 <h2>INGREDIENTS</h2>
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label for="pancakes" class="col-sm-9 control-label">How many pancakes do you want to make?</label>
-                        <div class="col-sm-3">
+                        <label for="pancakes" class="col-sm-8 control-label">How many pancakes do you want to make?</label>
+                        <div class="col-sm-4">
+                            <div class="input-group">
                             <input type="text" ng-model="list.pancakes" ng-change="list.change()" class="form-control" id="pancakes" placeholder="pancakes">
+                            <div class="input-group-addon">pcs</div>
+                                </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="thikness" class="col-sm-9 control-label">How thick do you want your pancakes?</label>
-                        <div class="col-sm-3">
+                        <label for="thikness" class="col-sm-8 control-label">How thick do you want your pancakes?</label>
+                        <div class="col-sm-4">
+                            <div class="input-group">
                             <input type="text" ng-model="list.thickness"  ng-change="list.change()"  class="form-control" id="thikness" placeholder="Thikness">
+                            <div class="input-group-addon">cm</div>
+                                </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="diameter" class="col-sm-9 control-label">What is the diameter of your pan?</label>
-                        <div class="col-sm-3">
-                            <input type="text" ng-model="list.diameter"  ng-change="list.change()" class="form-control" id="diameter" placeholder="diameter">
+                        <label for="diameter" class="col-sm-8 control-label">What is the diameter of your pan?</label>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <input type="text" ng-model="list.diameter"  ng-change="list.change()" class="form-control" id="diameter" placeholder="diameter">
+                                <div class="input-group-addon">cm</div>
+                            </div>
                         </div>
                     </div>
                 </form>
