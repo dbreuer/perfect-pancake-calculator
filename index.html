@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pancakeApp">
+<head>
+    <meta charset="UTF-8">
+    <title>The Perfect Pancake</title>
+    <link href="https://bootswatch.com/cosmo/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+</head>
+<body ng-controller="ingradientsController as list">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="#">The perfect pancake calculator</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="jumbotron" style="opacity: 1; background-image: url('http://d39jveuggs66im.cloudfront.net/images/415c40ce5bd90fea10bf55df970eec76250a1ffa_data.?1450264718'); background-position: 50% 50%; background-repeat: no-repeat;     height: 500px;padding-bottom: 0;background-attachment: fixed;transition: 0s linear;transition-property: background-position;background-size: cover; width: 100%;">
+    </div>
+        <div class="container">
+        <div class="jumbotron text-center">
+            <h1>The Perfect Pancake</h1>
+            <h3>Save the perfect pancake calculator and never waste batter again</h3>
+            <p>Maths students from the University of Sheffield have swapped calculus for the kitchen by developing a formula to prepare the perfect pancake.</p>
+            <small>(Courtesy of the University of Sheffield). <a href="http://phys.org/news/2016-02-secret-pancake-mathematically.html"> (link)</a></small>
+            <br/>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="row">
+                <div class="col-sm-3">
+                    <span class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </span><br/>
+
+                    <b>5.0 Star</b><br>rating
+                </div>
+                <div class="col-sm-3">
+                    <span><i class="fa fa-clock-o fa-3x"></i></span><br/>
+                    Prep <b>10 min</b>
+                    <br>Cook <b>15 min</b>
+                </div>
+                <div class="col-sm-3">
+                    <span><i class="fa fa-bar-chart fa-3x"></i></span><br/>
+                    <b>{{list.calorie}} cal</b>/<br>serving
+                </div>
+                <div class="col-sm-3">
+                    <span><i class="fa fa-graduation-cap fa-3x"></i></span><br/>
+                    <b>Medium</b><br>effort
+                </div>
+
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row" >
+            <div class="col-md-5">
+                <h2>INGREDIENTS</h2>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="pancakes" class="col-sm-9 control-label">How many pancakes do you want to make?</label>
+                        <div class="col-sm-3">
+                            <input type="text" ng-model="list.pancakes" ng-change="list.change()" class="form-control" id="pancakes" placeholder="pancakes">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="thikness" class="col-sm-9 control-label">How thick do you want your pancakes?</label>
+                        <div class="col-sm-3">
+                            <input type="text" ng-model="list.thickness"  ng-change="list.change()"  class="form-control" id="thikness" placeholder="Thikness">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="diameter" class="col-sm-9 control-label">What is the diameter of your pan?</label>
+                        <div class="col-sm-3">
+                            <input type="text" ng-model="list.diameter"  ng-change="list.change()" class="form-control" id="diameter" placeholder="diameter">
+                        </div>
+                    </div>
+                </form>
+                <ul class="list-group" >
+                    <li class="list-group-item" ng-repeat="item in list.ingradients">
+                        <strong ng-bind="item.value"></strong>
+                        <span ng-bind="item.text"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <h2>METHOD</h2>
+                <ul class="media-list">
+                    <li class="media">
+                        <div class="media-body">
+                            <h4 class="media-heading">1.</h4>
+                            <p>Sift the flour and salt into a large mixing bowl with a sieve held high above the bowl so the flour gets an airing. Now make a well in the centre of the flour and break the eggs into it. Then begin whisking the eggs - any sort of whisk or even a fork will do - incorporating any bits of flour from around the edge of the bowl as you do so.</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading">2.</h4>
+                        <p>Next gradually add small quantities of the milk and water mixture, still whisking (don't worry about any lumps as they will eventually disappear as you whisk). When all the liquid has been added, use a rubber spatula to scrape any elusive bits of flour from around the edge into the centre, then whisk once more until the batter is smooth, with the consistency of thin cream. Now melt the 50g/2oz of butter in a pan. Spoon 2 tbsp of it into the batter and whisk it in, then pour the rest into a bowl and use it to lubricate the pan, using a wodge of kitchen paper to smear it round before you make each pancake.</p>
+                    </div>
+                    </li>
+                    <li class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading">3.</h4>
+                        <p>Now get the pan really hot, then turn the heat down to medium and, to start with, do a test pancake to see if you're using the correct amount of batter. I find 2 tbsp is about right for an 18cm/7in pan. It's also helpful if you spoon the batter into a ladle so it can be poured into the hot pan in one go. As soon as the batter hits the hot pan, tip it around from side to side to get the base evenly coated with batter. It should take only half a minute or so to cook; you can lift the edge with a palette knife to see if it's tinged gold as it should be. Flip the pancake over with a pan slice or palette knife - the other side will need a few seconds only - then simply slide it out of the pan onto a plate.</p>
+                    </div>
+                    </li>
+                    <li class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading">4.</h4>
+                        <p>Stack the pancakes as you make them between sheets of greaseproof paper on a plate fitted over simmering water, to keep them warm while you make the rest.</p>
+                    </div>
+                    </li>
+                    <li class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading">5.</h4>
+                        <p>To serve, sprinkle each pancake with freshly squeezed lemon juice and caster sugar, fold in half, then in half again to form triangles, or else simply roll them up. Serve sprinkled with a little more sugar and lemon juice and extra sections of lemon.</p>
+                    </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p>© 2015 David Breuer <a href="https://github.com/dbreuer/">github</a>.</p>
+        </footer>
+    </div>
+
+    <script>
+        angular.module('pancakeApp', [])
+                .controller('ingradientsController', function($filter) {
+                    var list = this;
+                    list.pancakes = 20;
+                    list.thickness = (0.15);
+                    list.diameter = 18;
+                    list.calorie = 563;
+                    list.ingradients = [
+                        {value: 2.50, text: 'eggs'},
+                        {value: 250.27, text: 'ml milk'},
+                        {value: 62.57, text: 'g butter'},
+                        {value: 137.65, text: 'g plain flour'},
+                        {value: 93.85, text: 'ml water'},
+                        {value: 'a pinch',   text: 'salt'}
+                    ];
+
+                    list.change = function() {
+                        var b1 = list.pancakes;
+                        var b2 = list.thickness;
+                        var b3 = list.diameter;
+                        var b4 = (list.diameter*list.diameter);
+
+                        list.calorie =  $filter('number')((b4*b2*b1*1.06*Math.PI/4)*(68/97), 2);
+                        list.ingradients[0].value = $filter('number')((b4*b2*b1*1.06*Math.PI/4)*(20/97)*(1/50), 2);
+                        list.ingradients[1].value = $filter('number')((b4*b2*b1*1.06*Math.PI/4)*(40/97), 2);
+                        list.ingradients[2].value = $filter('number')((b4*b2*b1*1.06*Math.PI/4)*(10/97), 2);
+                        list.ingradients[3].value = $filter('number')((b4*b2*b1*1.06*Math.PI/4)*(22/97), 2);
+                        list.ingradients[4].value = $filter('number')((b4*b2*b1*1.06*Math.PI/4)*(15/97), 2);
+
+                    };
+                });
+    </script>
+</body>
+</html>
